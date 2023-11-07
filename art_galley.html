@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Art Gallery</title>
+    <style>
+        .image-box {
+            display: inline-block;
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Art Gallery</h1>
+
+    <div>
+        {% for image in image_data %}
+            <div class="image-box">
+                <img src="{{ url_for('static', filename=image.filename) }}" alt="{{ image.title }}">
+                <p>{{ image.title }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
